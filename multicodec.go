@@ -7,21 +7,28 @@ import (
 type Code uint64
 
 const (
-	Protobuf = Code(iota)
+	Unknown = Code(iota)
+	Protobuf
 	CBOR
 	Raw
 )
 
+func (c Code) String() string {
+	return CodeToString(c)
+}
+
+const UnknownMulticodecString = "<Unknown Multicodec>"
+
 func CodeToString(c Code) string {
 	switch c {
 	case Protobuf:
-		return "protobuf"
+		return "Protobuf"
 	case CBOR:
 		return "CBOR"
 	case Raw:
 		return "Raw"
 	default:
-		return "<Unknown Multicodec>"
+		return UnknownMulticodecString
 	}
 }
 
@@ -32,7 +39,7 @@ func GetCode(data []byte) Code {
 
 func AddPrefix(c Code, data []byte) []byte {
 	buf := make([]byte, len(data)+binary.MaxVarintLen64)
-	n := binary.PutUvarint(buf, c)
+	n := binary.PutUvarint(buf, uint64(c))
 	copy(buf[n:], data)
 	return buf[:n+len(data)]
 }
