@@ -8,7 +8,7 @@
   },
   "gxVersion": "0.8.0",
   "language": "go",
-  "license": "",
-  "name": "multiformats",
+  "license": "MIT",
+  "name": "go-multicodec-packed",
   "version": "0.0.0"
 }
