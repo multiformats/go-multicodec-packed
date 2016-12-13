@@ -7,10 +7,18 @@ import (
 type Code uint64
 
 const (
-	Unknown = Code(iota)
-	Protobuf
-	CBOR
-	Raw
+	Unknown     = Code(0)
+	Git         = Code(0x69)
+	DagProtobuf = Code(0x70)
+	DagCBOR     = Code(0x71)
+	Raw         = Code(0x55)
+
+	EthereumBlock = Code(0x90)
+	EthereumTx    = Code(0x91)
+	BitcoinBlock  = Code(0xb0)
+	BitcoinTx     = Code(0xb1)
+	ZcashBlock    = Code(0xc0)
+	ZcashTx       = Code(0xc1)
 )
 
 func (c Code) String() string {
@@ -21,12 +29,26 @@ const UnknownMulticodecString = "<Unknown Multicodec>"
 
 func CodeToString(c Code) string {
 	switch c {
-	case Protobuf:
-		return "Protobuf"
-	case CBOR:
-		return "CBOR"
+	case Git:
+		return "git"
+	case DagProtobuf:
+		return "dag-pb"
+	case DagCBOR:
+		return "dag-cbor"
 	case Raw:
-		return "Raw"
+		return "bin"
+	case BitcoinBlock:
+		return "bitcoin-block"
+	case BitcoinTx:
+		return "bitcoin-tx"
+	case EthereumBlock:
+		return "eth-block"
+	case EthereumTx:
+		return "eth-tx"
+	case ZcashBlock:
+		return "zcash-block"
+	case ZcashTx:
+		return "zcash-tx"
 	default:
 		return UnknownMulticodecString
 	}
