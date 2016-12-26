@@ -8,14 +8,14 @@ import (
 func TestEncodeRoundtrip(t *testing.T) {
 	data := []byte("Hello World")
 
-	mcdata := AddPrefix(Protobuf, data)
+	mcdata := AddPrefix(DagProtobuf, data)
 
 	outc, outdata := SplitPrefix(mcdata)
-	if outc != Protobuf {
+	if outc != DagProtobuf {
 		t.Fatal("didnt get same codec as output")
 	}
 
-	if GetCode(mcdata) != Protobuf {
+	if GetCode(mcdata) != DagProtobuf {
 		t.Fatal("GetCode returned incorrect code")
 	}
 
@@ -25,11 +25,11 @@ func TestEncodeRoundtrip(t *testing.T) {
 }
 
 func TestStringer(t *testing.T) {
-	if CBOR.String() != "CBOR" {
+	if DagCBOR.String() != "dag-cbor" {
 		t.Fatal("stringify failed")
 	}
 
-	if Protobuf.String() != "Protobuf" {
+	if DagProtobuf.String() != "dag-pb" {
 		t.Fatal("stringify failed")
 	}
 
