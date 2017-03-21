@@ -13,12 +13,20 @@ const (
 	DagCBOR     = Code(0x71)
 	Raw         = Code(0x55)
 
-	EthereumBlock = Code(0x90)
-	EthereumTx    = Code(0x91)
-	BitcoinBlock  = Code(0xb0)
-	BitcoinTx     = Code(0xb1)
-	ZcashBlock    = Code(0xc0)
-	ZcashTx       = Code(0xc1)
+	EthBlock           = Code(0x90)
+	EthBlockList       = Code(0x91)
+	EthTxTrie          = Code(0x92)
+	EthTx              = Code(0x93)
+	EthTxReceiptTrie   = Code(0x94)
+	EthTxReceipt       = Code(0x95)
+	EthStateTrie       = Code(0x96)
+	EthAccountSnapshot = Code(0x97)
+	EthStorageTrie     = Code(0x98)
+
+	BitcoinBlock = Code(0xb0)
+	BitcoinTx    = Code(0xb1)
+	ZcashBlock   = Code(0xc0)
+	ZcashTx      = Code(0xc1)
 )
 
 func (c Code) String() string {
@@ -41,10 +49,24 @@ func CodeToString(c Code) string {
 		return "bitcoin-block"
 	case BitcoinTx:
 		return "bitcoin-tx"
-	case EthereumBlock:
+	case EthBlock:
 		return "eth-block"
-	case EthereumTx:
+	case EthBlockList:
+		return "eth-block-list"
+	case EthTxTrie:
+		return "eth-tx-trie"
+	case EthTx:
 		return "eth-tx"
+	case EthTxReceiptTrie:
+		return "eth-tx-receipt-trie"
+	case EthTxReceipt:
+		return "eth-tx-receipt"
+	case EthStateTrie:
+		return "eth-state-trie"
+	case EthAccountSnapshot:
+		return "eth-account-snapshot"
+	case EthStorageTrie:
+		return "eth-storage-trie"
 	case ZcashBlock:
 		return "zcash-block"
 	case ZcashTx:
