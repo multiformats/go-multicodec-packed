@@ -12,6 +12,19 @@ const (
 	DagProtobuf = Code(0x70)
 	DagCBOR     = Code(0x71)
 	Raw         = Code(0x55)
+	RLP         = Code(0x60)
+	Bencode     = Code(0x63)
+
+	Multicodec = Code(0x30)
+	Multihash  = Code(0x31)
+	Multiaddr  = Code(0x32)
+	Multibase  = Code(0x33)
+
+	StellarBlock = Code(0xd0)
+	StellarTx    = Code(0xd1)
+
+	TorrentInfo = Code(0x7b)
+	TorrentFile = Code(0x7c)
 
 	EthBlock           = Code(0x90)
 	EthBlockList       = Code(0x91)
@@ -45,6 +58,18 @@ func CodeToString(c Code) string {
 		return "dag-cbor"
 	case Raw:
 		return "bin"
+	case RLP:
+		return "rlp"
+	case Bencode:
+		return "bencode"
+	case Multicodec:
+		return "multicodec"
+	case Multihash:
+		return "multihash"
+	case Multiaddr:
+		return "multiaddr"
+	case Multibase:
+		return "multibase"
 	case BitcoinBlock:
 		return "bitcoin-block"
 	case BitcoinTx:
@@ -71,6 +96,14 @@ func CodeToString(c Code) string {
 		return "zcash-block"
 	case ZcashTx:
 		return "zcash-tx"
+	case StellarBlock:
+		return "stellar-block"
+	case StellarTx:
+		return "stellar-tx"
+	case TorrentInfo:
+		return "torrent-info"
+	case TorrentFile:
+		return "torrent-file"
 	default:
 		return UnknownMulticodecString
 	}
