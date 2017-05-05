@@ -40,6 +40,8 @@ const (
 	BitcoinTx    = Code(0xb1)
 	ZcashBlock   = Code(0xc0)
 	ZcashTx      = Code(0xc1)
+	
+	Ed25519Pub = Code(0xed)
 )
 
 func (c Code) String() string {
@@ -104,6 +106,8 @@ func CodeToString(c Code) string {
 		return "torrent-info"
 	case TorrentFile:
 		return "torrent-file"
+	case Ed25519Pub:
+		return "ed25519-pub"	
 	default:
 		return UnknownMulticodecString
 	}
