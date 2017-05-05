@@ -107,7 +107,7 @@ func CodeToString(c Code) string {
 	case TorrentFile:
 		return "torrent-file"
 	case Ed25519Pub:
-		return "ed25519-pub"	
+		return "ed25519-pub"
 	default:
 		return UnknownMulticodecString
 	}
