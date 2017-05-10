@@ -42,6 +42,7 @@ var testCases = []TestCase{
 	TestCase{0x97, "eth-account-snapshot", "68656c6c6f20776f726c64", "970168656c6c6f20776f726c64"},
 	TestCase{0xb0, "bitcoin-block", "68656c6c6f20776f726c64", "b00168656c6c6f20776f726c64"},
 	TestCase{0x7b, "torrent-info", "68656c6c6f20776f726c64", "7b68656c6c6f20776f726c64"},
+	TestCase{0xed, "ed25519-pub", "68656c6c6f20776f726c64", "ed0168656c6c6f20776f726c64"},
 }
 
 func TestCodecPrefix(t *testing.T) {
