@@ -9,6 +9,8 @@
   "gxVersion": "0.8.0",
   "language": "go",
   "license": "MIT",
+  "releaseCmd": "git commit -a -m \"gx publish $VERSION\"",
   "name": "go-multicodec-packed",
-  "version": "0.0.0"
+  "version": "0.1.0"
 }
+
